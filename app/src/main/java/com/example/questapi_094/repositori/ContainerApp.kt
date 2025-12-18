@@ -7,7 +7,7 @@ interface ContainerApp{
 }
 
 class DefaultContainerApp : ContainerApp{
-    private val baseurl = ""
+    private val baseurl = "http://10.0.2.2/tiumy/"
 
     val logging = HttpLoggingInterceptor().apply{
         level = HttpLoggingInterceptor.Level.BODY
