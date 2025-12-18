@@ -93,7 +93,7 @@ fun HomeScreen(
 @Composable
 fun HomeBody(
     statusUiSiswa: StatusUiSiswa,
-    // edit 2.3 : tambahkan parameter onSiswaClick
+    // edit 2.3 : tambahkan parameter onSiswaClick. Fungsi tersebut akan dipanggil ketika siswa diklik
     onSiswaClick: (Int) -> Unit,
     retryAction: () -> Unit,
     modifier: Modifier = Modifier
