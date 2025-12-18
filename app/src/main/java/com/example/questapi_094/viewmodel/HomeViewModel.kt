@@ -8,30 +8,30 @@ import androidx.lifecycle.viewModelScope
 import com.example.questapi_094.modeldata.DataSiswa
 import com.example.questapi_094.repositori.RepositoryDataSiswa
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 import java.io.IOException
 
-sealed interface StatusUiSiswa{
-    data class Success(val siswa: List<DataSiswa>) : StatusUiSiswa
+sealed interface StatusUiSiswa {
+    data class Success(val listSiswa: List<DataSiswa>) : StatusUiSiswa
     object Error : StatusUiSiswa
     object Loading : StatusUiSiswa
 }
 
-class HomeViewModel(private val repositoryDataSiswa: RepositoryDataSiswa) : ViewModel() {
+
+class HomeViewModel (private val repositoryDataSiswa: RepositoryDataSiswa) : ViewModel(){
     var listSiswa: StatusUiSiswa by mutableStateOf(StatusUiSiswa.Loading)
         private set
-
-    init{
+    init {
         loadSiswa()
     }
-
-    fun loadSiswa() {
-        viewModelScope.launch{
+    private fun loadSiswa() {
+        viewModelScope.launch {
             listSiswa = StatusUiSiswa.Loading
-            listSiswa = try{
+            listSiswa = try {
                 StatusUiSiswa.Success(repositoryDataSiswa.getDataSiswa())
-            }catch (e: IOException){
+            }catch (e: IOException) {
                 StatusUiSiswa.Error
-            }catch (e: retrofit2.HttpException){
+            } catch (e: HttpException){
                 StatusUiSiswa.Error
             }
         }
