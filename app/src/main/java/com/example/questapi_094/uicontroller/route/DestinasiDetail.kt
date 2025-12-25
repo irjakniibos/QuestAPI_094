@@ -7,5 +7,8 @@ object DestinasiDetail: DestinasiNavigasi {
 
     override val titleRes = R.string.detail_siswa
 
+    const val itemIdArg = "idSiswa"
+
+
 
 }
