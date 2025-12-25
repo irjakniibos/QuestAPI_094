@@ -7,5 +7,6 @@ object DestinasiEdit: DestinasiNavigasi {
 
     override val titleRes = R.string.edit_siswa
 
+    const val itemIdArg = "idSiswa"
 
 }
