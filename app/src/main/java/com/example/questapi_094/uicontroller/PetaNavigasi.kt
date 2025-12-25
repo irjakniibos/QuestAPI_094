@@ -1,5 +1,6 @@
 package com.example.questapi_094.uicontroller
 
+import android.R.attr.type
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -60,7 +61,8 @@ fun HostNavigasi(
         composable(DestinasiEdit.routeWithArgs, arguments = listOf(navArgument(DestinasiEdit.itemIdArg){
             type= NavType.IntType
         })){
-
+            EditSiswaScreen(navigateBack = { navController.navigate(DestinasiHome.route)},
+                onNavigateUp = { navController.navigateUp()})
         }
     }
 }
